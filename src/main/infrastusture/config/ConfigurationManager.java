@@ -1,4 +1,4 @@
-package main.infrastusture;
+package main.infrastusture.config;
 
 public class ConfigurationManager {
     private static ConfigurationManager instance;
@@ -29,5 +29,9 @@ public class ConfigurationManager {
 
     public String getCurrentEnvironment(){
         return getEnvinromentVariableOrDefault("runEnv", "local");
+    }
+
+    public String getRunOn(){
+        return getEnvinromentVariableOrDefault("runOn", "local");
     }
 }

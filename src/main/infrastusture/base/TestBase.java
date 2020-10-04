@@ -1,8 +1,12 @@
-package main.infrastusture;
+package main.infrastusture.base;
 
+import main.infrastusture.config.ConfigurationManager;
+import main.infrastusture.TestServer;
 import main.infrastusture.logging.AbstractLogger;
 import main.infrastusture.logging.FileTestLogger;
 import main.infrastusture.logging.StdTestLogger;
+import main.infrastusture.wdm.DefaultWebDriverManager;
+import main.infrastusture.wdm.WebDriverManager;
 
 public class TestBase {
     private WebDriverManager wdm;
@@ -12,9 +16,9 @@ public class TestBase {
     private String browser;
 
     public void setup(){
-        wdm = new WebDriverManager();
+        wdm = new DefaultWebDriverManager();
         logger = getLogger();
-        browser = wdm.createBrowser();
+        browser = wdm.getBrowser();
         server = new TestServer();
         String url = server.getUrl();
         logger.log(url);
@@ -24,6 +28,7 @@ public class TestBase {
 
     public void tearDown(){
         wdm.destroyBrowser(browser);
+        afterTest();
     }
 
     public void beforeTest(){
@@ -31,6 +36,7 @@ public class TestBase {
     }
 
     public void afterTest(){
+       logger.atFinish();
 
     }
 

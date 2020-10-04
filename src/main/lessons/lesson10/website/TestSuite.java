@@ -4,17 +4,6 @@ import main.infrastusture.logging.AbstractLogger;
 
 public class TestSuite {
     public static void main(String[] args) {
-//        AbstractLogger mailLogger = new AbstractLogger() {
-//            @Override
-//            public void log(String msg) {
-//                Mailsender sender = new Mailsender();
-//                sender.sendLog(msg);
-//
-//            }
-//        };
-//
-//        mailLogger.log("");
-
 
         LoginTests test1 = new LoginTests();
         test1.setup();

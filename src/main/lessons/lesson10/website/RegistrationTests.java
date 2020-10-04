@@ -1,12 +1,10 @@
 package main.lessons.lesson10.website;
 
-import main.infrastusture.TestBase;
-
 public class RegistrationTests extends AuthFlowBaseTest {
 
     @Override
     public void beforeTest(){
-        beforeAuth();
+        super.beforeTest();
         logger.log("switch to registration page");
         logger.log("fill login");
         logger.log("fill password");

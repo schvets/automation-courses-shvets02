@@ -1,4 +1,4 @@
-package main.infrastusture;
+package main.infrastusture.utils;
 
 import java.util.Random;
 

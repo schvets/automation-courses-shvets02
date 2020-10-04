@@ -1,5 +1,7 @@
 package main.infrastusture;
 
+import main.infrastusture.config.ConfigurationManager;
+
 public class TestServer {
     public String getUrl() {
         String testEnvironment = ConfigurationManager.getInstance().getTestEnvironment();
