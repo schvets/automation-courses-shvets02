@@ -1,5 +1,8 @@
 package main.infrastusture.config;
 
+
+import main.infrastusture.BrowserType;
+
 public class ConfigurationManager {
     private static ConfigurationManager instance;
 
@@ -19,8 +22,8 @@ public class ConfigurationManager {
                 defaultValue : currentVarValue;
     }
 
-    public String getTestBrowser(){
-        return getEnvinromentVariableOrDefault("browser", "chrome");
+    public BrowserType getTestBrowser(){
+        return BrowserType.valueOf(getEnvinromentVariableOrDefault("browser", "chrome").toUpperCase());
     }
 
     public String getTestEnvironment(){
@@ -34,4 +37,10 @@ public class ConfigurationManager {
     public String getRunOn(){
         return getEnvinromentVariableOrDefault("runOn", "local");
     }
+
+
+    public String getLocale(){
+        return getEnvinromentVariableOrDefault("locale", "en");
+    }
+
 }

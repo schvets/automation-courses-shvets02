@@ -1,14 +1,15 @@
 package main.infrastusture.wdm;
 
+import main.infrastusture.BrowserType;
 import main.infrastusture.config.ConfigurationManager;
 
 public class RemoteWebDriverFactory implements WebDriverFactory {
     public String create() {
-        String testBrowser = ConfigurationManager.getInstance().getTestBrowser();
+        BrowserType testBrowser = ConfigurationManager.getInstance().getTestBrowser();
         switch (testBrowser) {
-            case "chrome":
+            case CHROME:
                 return "remote new Google Chrome driver";
-            case "firefox":
+            case FIREFOX:
                 return "remote new Mozilla Firefox driver";
             default:
                 return "";
