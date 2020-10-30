@@ -1,12 +1,16 @@
-package java.dataMapperTests;
+package dataMapperTests;
 
-import infrastusture.data.DataMapper;
 import infrastusture.data.FileDataMapper;
 import infrastusture.data.User;
+import org.hamcrest.Matcher;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.dataMapperTests.BaseTest;
+import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
+
 
 public class PositiveDataMapperTest extends BaseTest {
     @Test
@@ -24,4 +28,12 @@ public class PositiveDataMapperTest extends BaseTest {
         User actualUser = mapper.findUserByUserName("user5");
         Assert.assertEquals("user not match expected",expectedUser, actualUser);
     }
+
+    @Test
+    public void readAllUsersFromFie(){
+        FileDataMapper mapper = new FileDataMapper();
+        List<User> actualUserList = mapper.getAll();
+        assertThat("data from file not matched to actual data ",actualUserList, hasSize(9));
+    }
+
 }

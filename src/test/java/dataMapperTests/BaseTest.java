@@ -1,4 +1,4 @@
-package java.dataMapperTests;
+package dataMapperTests;
 
 import infrastusture.data.DataMapper;
 import org.junit.Rule;

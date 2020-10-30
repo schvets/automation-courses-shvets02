@@ -1,4 +1,4 @@
-package java.dataMapperTests;
+package dataMapperTests;
 
 import infrastusture.data.DataMapper;
 import infrastusture.data.FileDataMapper;
@@ -15,7 +15,21 @@ public class NegativeDataMapperTestCase extends BaseTest{
         ex.expectMessage("can't find user with user6999@gmail.com");
         ex.expect(UserNotFoundException.class);
         mapper = new FileDataMapper();
-        User expectedUser = new User("6", "user6", "user6@gmail.com", "6666666qwe");
         User actualUser = mapper.findUserByEmail("user6999@gmail.com");
+    }
+
+    @Test
+    public void findUserByNameTest(){
+        ex.expectMessage("can't find user with user6");
+        ex.expect(UserNotFoundException.class);
+        mapper = new FileDataMapper();
+        User actualUser = mapper.findUserByUserName("user678");
+    }
+
+    @Test
+    public void unableTorReadSourceFileTest(){
+        ex.expectMessage("unable to read data from file");
+        ex.expect(IllegalArgumentException.class);
+        mapper = new FileDataMapper("users777.txt");
     }
 }
