@@ -16,7 +16,7 @@ public class PositiveDataMapperTest extends BaseTest {
     @Test
     public void findUserByEmailTest(){
         mapper = new FileDataMapper();
-        User expectedUser = new User("6", "user6", "user6@gmail.com", "6666666qwe");
+        User expectedUser = new User("6", "user6", "user6@gmail.com", "6666444666qwe");
         User actualUser = mapper.findUserByEmail("user6@gmail.com");
         Assert.assertEquals("user not match expected",expectedUser, actualUser);
     }
