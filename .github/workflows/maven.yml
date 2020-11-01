@@ -21,5 +21,9 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn clean test --file pom.xml -Dmaven.test.failure.ignore=true surefire-report:report
+      run: mvn clean test --file pom.xml -Dmaven.test.failure.ignore=true
+    - name: Publish Test Report
+      uses: scacap/action-surefire-report@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
